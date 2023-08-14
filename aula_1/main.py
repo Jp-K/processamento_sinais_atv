@@ -1,28 +1,34 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+Dt = 5e-5
+t = np.arange(-5e-3, 5e-3 + Dt, Dt)
 
-audio = np.memmap("./Anexo_38986931.pcm", dtype='h', mode='r')
-ganho = .5
+f = 1000
 
-copy_audio = audio.copy()
+xa = np.cos(2 * np.pi * f * t)
 
-for idx, item in enumerate(audio):
-    copy_audio[idx] = item*ganho
+plt.figure(figsize=(8, 6))
 
-plt.plot(audio)
-plt.title('Audio original')
+plt.plot(t * 1000, xa)
+plt.xlabel('Tempo [ms]')
+plt.ylabel('xa(t)')
+plt.title(f'Sinal de Freq = {f} Hz')
+
+plt.tight_layout() 
 plt.show()
 
-plt.plot(copy_audio)
-plt.title('Audio com ganho')
+
+Fs = 8000
+Ts = 1 / Fs
+n = np.arange(-20, 21)
+xd = np.cos(2 * np.pi * n * f / Fs)
+N = len(n)
+
+
+plt.stem(n, xd, linefmt='r', markerfmt='ro', basefmt='r')
+plt.title('Sinal Amostrado')
+plt.xlabel('Amostras')
+plt.ylabel('x[n]')
+plt.grid(True)
 plt.show()
-
-print(audio.shape[0])
-fp = np.memmap("./output.pcm", dtype='h', mode='w+', shape=audio.shape)
-
-for i in range(audio.shape[0]):
-    fp[i] = copy_audio[i]
-
-#filtered_audio_path = 'audio_com_ganho.pcm'
-#wavfile.write(filtered_audio_path, sample_rate, filtered_audio.astype(np.int16))
