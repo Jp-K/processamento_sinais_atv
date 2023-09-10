@@ -10,11 +10,6 @@ copy_audio = audio.copy()
 
 x = audio
 
-#def flip_sequence(seq):
-    #return seq[::-1]
-
-#flipped_x = flip_sequence(x)
-
 M = len(x)
 N = len(h)
 L = M + N - 1
@@ -25,13 +20,6 @@ for n in range(L):
     for k in range(N):
         if n - k >= 0 and n - k < M:
             convolved_signal[n] += x[n - k] * h[k]
-
-print(convolved_signal)
-
-
-#plt.plot(audio)
-#plt.title('entrada')
-#plt.show()
 
 
 plt.plot(convolved_signal)
