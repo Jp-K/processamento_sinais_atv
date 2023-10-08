@@ -3,12 +3,13 @@ import matplotlib.pyplot as plt
 
 Fs = 8000
 
-t3 = 5 * 10 ** -3
+t3 = 1 * 10 ** -3
 
 n3 = int(t3 * Fs)
+print(n3)
 tama_media = n3
 
-audio = np.memmap("./Anexo_38986931.pcm", dtype='h', mode='r')
+audio = np.memmap("./sweep.pcm", dtype='h', mode='r')
 copy_audio = audio.copy()
 vetor_delay = np.zeros((tama_media,))
 

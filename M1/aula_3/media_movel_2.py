@@ -34,12 +34,10 @@ plt.plot(s)
 plt.grid(True)
 plt.title('Entrada e saída do Filtro')
 
-# Plotar a saída
 plt.subplot(2, 1, 2)
 plt.plot(sav_y)
 plt.grid(True)
 plt.show()
 
-# Salvar arquivo de saída
 with open('saida_mm.pcm', 'wb') as fid2:
     sav_y.astype(np.int16).tofile(fid2)

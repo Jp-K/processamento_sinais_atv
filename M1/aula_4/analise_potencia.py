@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 N_th = 16
-P_th = 4000
+P_th = 40000
 
 
 audio = np.memmap("./Anexo_38986931.pcm", dtype='h', mode='r')
@@ -28,7 +28,7 @@ for i in range(len(audio)):
             valor = audio[j]
             if audio[j] < 0:
                 valor = valor*-1
-            media_atual += valor/N_th
+            media_atual += (valor)/N_th
     if media_atual >= P_th:
         vet_saida[i] = input_val
     else: 
@@ -38,6 +38,10 @@ for i in range(len(audio)):
 #plt.ylabel('y')
 #plt.title(f'Impulso Unitário')
 #plt.show()
+
+plt.plot(audio)
+plt.title('output')
+plt.show()
 
 plt.plot(vet_saida)
 plt.title('output')
