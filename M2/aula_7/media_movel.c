@@ -1,8 +1,3 @@
-/* Implementação de um filtro Média Móvel 
-Lê um arquivo binário com amostras em 16bits
-Salva arquivo filtrado também em 16 bits
-Walter versão 1.0 
- */
 #include <stdio.h>
 #include <fcntl.h>
 #include <io.h>
@@ -33,7 +28,7 @@ int main()
     printf("\nErro: Nao abriu o arquivo de entrada\n");
     return 0;
   }
-  if ((out_file = fopen("..//sai_sweep_mm_4.pcm","wb"))==NULL)
+  if ((out_file = fopen("sai_sweep_mm_4.pcm","wb"))==NULL)
   {
     printf("\nErro: Nao abriu o arquivo de saida\n");
     return 0;
