@@ -10,13 +10,18 @@ FS = 8000
 PI = np.pi
 FC = 0.1  # Set the cutoff frequency (between 0 and 0.5) 
 
+# 1 = blackman | 2 = hamming
+op = 2
 
 for I in range(M+1):
     if (I - M // 2) == 0:
         H[I] = 2 * PI * FC
     if (I - M // 2) != 0:
         H[I] = np.sin(2 * PI * FC * (I - M // 2)) / (I - M // 2)
-    H[I] = H[I] * (0.54 - 0.46 * np.cos(2 * PI * I / M))
+    if op == 1:
+        H[I] = H[I] * (0.42 - 0.5 * np.cos(2 * PI * I / M) + 0.08 * np.cos(4 * PI * I / M))
+    else:
+        H[I] = H[I] * (0.54 - 0.46 * np.cos(2 * PI * I / M))
 
 SUM = sum(H)
 H = [h / SUM for h in H]

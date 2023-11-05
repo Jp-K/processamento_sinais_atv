@@ -10,6 +10,8 @@ H = np.zeros(M+1)
 FS = 8000
 PI = np.pi
 
+# 1 = blackman | 2 = hamming
+op = 1
 
 FC = 0.196 
 for I in range(M+1):
@@ -17,7 +19,10 @@ for I in range(M+1):
         A[I] = 2 * PI * FC
     if (I - M // 2) != 0:
         A[I] = np.sin(2 * PI * FC * (I - M // 2)) / (I - M // 2)
-    A[I] = A[I] * (0.42 - 0.5 * np.cos(2 * PI * I / M) + 0.08 * np.cos(4 * PI * I / M))
+    if op == 1:
+        A[I] = A[I] * (0.42 - 0.5 * np.cos(2 * PI * I / M) + 0.08 * np.cos(4 * PI * I / M))
+    else:
+        A[I] = A[I] * (0.54 - 0.46 * np.cos(2 * PI * I / M))
 
 SUM = sum(A)
 A = [a / SUM for a in A]
@@ -29,7 +34,10 @@ for I in range(M+1):
         B[I] = 2 * PI * FC
     if (I - M // 2) != 0:
         B[I] = np.sin(2 * PI * FC * (I - M // 2)) / (I - M // 2)
-    B[I] = B[I] * (0.42 - 0.5 * np.cos(2 * PI * I / M) + 0.08 * np.cos(4 * PI * I / M))
+    if op == 1:
+        B[I] = B[I] * (0.42 - 0.5 * np.cos(2 * PI * I / M) + 0.08 * np.cos(4 * PI * I / M))
+    else:
+        B[I] = B[I] * (0.54 - 0.46 * np.cos(2 * PI * I / M))
 
 SUM = sum(B)
 B = [b / SUM for b in B]
