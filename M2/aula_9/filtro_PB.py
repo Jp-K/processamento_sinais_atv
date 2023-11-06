@@ -3,11 +3,15 @@ import matplotlib.pyplot as plt
 from scipy import signal as sf
 
 # LOW-PASS WINDOWED-SINC FILTER
-M = 100  # Set filter length (101 points)
-H = np.zeros(M+1)
 FS = 8000
+FC = 800
+#M = 100  # Set filter length (101 points)
+M = int(4/(FC/FS))
+print(M)
+H = np.zeros(M+1)
 PI = np.pi
-FC = 0.14  # Set the cutoff frequency (between 0 and 0.5) 
+#FC = 0.14  # Set the cutoff frequency (between 0 and 0.5) 
+FC = FC/FS
 
 # 1 = blackman | 2 = hamming
 op = 2

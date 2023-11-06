@@ -3,7 +3,7 @@
 #include <io.h>
 
 
-#define NSAMPLES       801	// Tamanho da média
+#define NSAMPLES       41	// Tamanho da média
 
 int main()
 {

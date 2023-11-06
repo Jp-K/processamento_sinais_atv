@@ -7,9 +7,8 @@ M = 800
 A = np.zeros(M+1)  
 B = np.zeros(M+1)  
 H = np.zeros(M+1)  
-FS = 8000
 PI = np.pi
-
+FS = 8000
 # 1 = blackman | 2 = hamming
 op = 1
 
