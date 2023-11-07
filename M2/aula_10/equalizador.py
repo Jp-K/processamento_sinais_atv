@@ -6,8 +6,9 @@ from scipy import signal as sf
 
 # EQUALIZADOR
 FS = 8000
-FC = 200
-FC2 = 800
+FS = 48000 #usar esse aqui pra musica
+FC = 3200
+FC2 = 7800
 M = int(4/(FC2/FS))
 #M = 100  # Set filter length (101 points)
 print(M)
@@ -24,9 +25,9 @@ FC2 = FC2/FS
 # 1 = blackman | 2 = hamming
 op = 2
 
-GB = 0.7
-GA = 0.6
-GF = 0.5
+GB = 0.5
+GA = 0.2
+GF = 0.1
 
 for I in range(M+1):
     if (I - M // 2) == 0:
