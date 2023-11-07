@@ -3,7 +3,7 @@
 #include <io.h>
 
 
-#define NSAMPLES       25	// Tamanho da média
+#define NSAMPLES       41	// Tamanho da média
 
 int main()
 {
@@ -24,7 +24,8 @@ int main()
  
    /* abre os arquivos de entrada e saida */
   /* if ((in_file = fopen("sweep.pcm","rb"))==NULL) */
-  if ((in_file = fopen("musica_walter.pcm","rb"))==NULL)
+  /* if ((in_file = fopen("musica_walter.pcm","rb"))==NULL) */
+  if ((in_file = fopen("sweep.pcm","rb"))==NULL)
   {
     printf("\nErro: Nao abriu o arquivo de entrada\n");
     return 0;

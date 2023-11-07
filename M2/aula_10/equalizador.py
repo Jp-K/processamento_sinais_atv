@@ -6,9 +6,11 @@ from scipy import signal as sf
 
 # EQUALIZADOR
 FS = 8000
-FS = 48000 #usar esse aqui pra musica
-FC = 3200
-FC2 = 7800
+#FS = 48000 #usar esse aqui pra musica
+#FC = 3200
+#FC2 = 7800
+FC = 200
+FC2 = 800
 M = int(4/(FC2/FS))
 #M = 100  # Set filter length (101 points)
 print(M)
