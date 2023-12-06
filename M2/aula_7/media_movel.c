@@ -17,7 +17,7 @@ int main()
 
    //Carregando os coeficientes do filtro média móvel
    
-   float coef[NSAMPLES]={
+   float  coef[NSAMPLES]={
    				#include "coefs_4.dat"
    };
   
